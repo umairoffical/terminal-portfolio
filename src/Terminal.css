@@ -1,0 +1,232 @@
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    background-color: #050a14;
+    color: #e6f1ff;
+    font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-image: radial-gradient(#30363d 1px, transparent 0);
+    background-size: 40px 40px;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+.terminal {
+    background-color: #0d1117dd;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%; /* Changed from 100vw to 100% */
+    border: 1px solid #30363d;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+/* --- Terminal Header --- */
+.terminal-header {
+    background-color: #161b22bb;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+.traffic-lights { display: flex; }
+.light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-title {
+    color: #c9d1d9;
+    font-size: 14px;
+    text-align: center;
+    flex-grow: 1;
+    margin-left: -60px;
+}
+
+.terminal-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Changed from overflow to hidden */
+    padding: 15px;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+/* --- Tabs V4 (Glassmorphism) --- */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #30363d;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+.tab {
+    padding: 12px 22px;
+    cursor: pointer;
+    color: #8b949e;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 6px 6px 0 0;
+    margin-right: 5px;
+    position: relative;
+    font-size: 14px;
+    background-color: transparent;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+.tab:hover {
+    color: #c9d1d9;
+    background-color: #ffffff1a;
+}
+
+.tab.active {
+    color: #f0f6fc;
+    background-color: #ffffff2a;
+    border-bottom: 3px solid #58a6ff;
+    margin-bottom: -1px; /* Align with border-bottom of .tabs */
+}
+
+.tab-content-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    word-break: break-word; /* Ensure long words break and wrap */
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+
+.tab-content {
+    line-height: 1.5;
+}
+
+.tab-content .command-prefix {
+    color: #39d353;
+    margin-right: 8px;
+}
+
+/* --- Loading Screen --- */
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d1117;
+    text-align: center;
+    padding: 20px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+/* --- Command Prompt --- */
+.prompt-line { margin-top: 20px; }
+.prompt-user { color: #39d353; }
+
+.name-heading {
+    color: #58a6ff; /* A prominent blue color */
+    font-size: 1.8em; /* Significantly larger font size */
+    font-weight: bold;
+}
+
+.prompt-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2em;
+    background-color: #e6f1ff;
+    margin-left: 8px;
+    animation: blink-cursor 1s infinite;
+}
+@keyframes blink-cursor { 50% { opacity: 0; } }
+
+/* --- JSON Output --- */
+.json-output { white-space: pre-wrap; font-size: 14px; line-height: 1.5; color: #e6f1ff; word-break: break-word; }
+.json-output .key { color: #58a6ff; }
+.json-output .string { color: #a5d6ff; }
+.json-output .number { color: #ffab70; }
+.json-output .boolean { color: #f778ba; }
+
+/* --- Jokes --- */
+.joke-container {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px dashed #30363d;
+    border-radius: 6px;
+    color: #8b949e;
+    font-style: italic;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+/* --- Mobile Menu --- */
+.mobile-menu {
+    position: relative;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+.hamburger-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #c9d1d9;
+    padding: 5px;
+    display: inline-block;
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    z-index: 100;
+    padding: 5px;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+.menu-item {
+    padding: 10px 15px;
+    color: #8b949e;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding/border is included in element's total width/height */
+}
+
+.menu-item:hover {
+    background-color: #ffffff1a;
+    color: #c9d1d9;
+}
+
+.menu-item.active {
+    background-color: #58a6ff;
+    color: #f0f6fc;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 767px) {
+    .terminal-title { display: none; }
+    .terminal-body { padding: 10px; }
+    
+    /* Hide desktop tabs on mobile */
+    .tabs {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Hide mobile menu on desktop */
+            .mobile-menu {
+                display: none;
+            }
+        }
